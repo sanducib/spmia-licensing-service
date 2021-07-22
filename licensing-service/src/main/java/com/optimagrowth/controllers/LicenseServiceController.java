@@ -26,8 +26,9 @@ public class LicenseServiceController {
 				.withLicenseType("Seat");
 	}
 	
-	public String updateLicense(String licenseId) {
+	@RequestMapping(value="{licenseId}" , method=RequestMethod.PUT)
+	public String updateLicenses(@PathVariable("licenseId")String licenseId) {
 		return String.format("This is the put");
 	}
-
-}
+	
+	public String saveLicenses(String licenseId) {
