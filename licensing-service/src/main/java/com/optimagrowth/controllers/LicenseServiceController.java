@@ -31,4 +31,14 @@ public class LicenseServiceController {
 		return String.format("This is the put");
 	}
 	
-	public String saveLicenses(String licenseId) {
+	@RequestMapping(value="{licenseId}" , method=RequestMethod.POST)
+	public String saveLicenses(@PathVariable("licenseId")String licenseId) {
+		return String.format("This is post");
+		}
+	
+	@RequestMapping(value="{licenseId}" , method=RequestMethod.DELETE)
+	public String deleteLicenses(@PathVariableString licenseId) {
+		return String.format("This is delete");
+	}
+	
+	}
