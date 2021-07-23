@@ -37,7 +37,7 @@ public class LicenseServiceController {
 		}
 	
 	@RequestMapping(value="{licenseId}" , method=RequestMethod.DELETE)
-	public String deleteLicenses(@PathVariableString licenseId) {
+	public String deleteLicenses(@PathVariable String licenseId) {
 		return String.format("This is delete");
 	}
 	
