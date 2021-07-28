@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.optimagrowth.config.ServiceConfig;
 import com.optimagrowth.model.License;
 import com.optimagrowth.services.LicenseService;
 
@@ -14,16 +15,16 @@ import com.optimagrowth.services.LicenseService;
 public class LicenseServiceController {
 	
 	@Autowired
+	private ServiceConfig serviceConfig;
+	
+	@Autowired
 	private LicenseService licenseService;
 	
 	@RequestMapping(value="{licenseId}" , method = RequestMethod.GET)
 	public License getLicense(@PathVariable("organizationId") String organizationId , 
 							  @PathVariable("licenseId") String licenseId) {
-		return new License()
-				.withId(licenseId)
-				.withOrganizationId(organizationId)
-				.withProductName("Teleco")
-				.withLicenseType("Seat");
+		
+		return licenseService.getLicense(organizationId, licenseId);
 	}
 	
 	@RequestMapping(value="{licenseId}" , method=RequestMethod.PUT)
